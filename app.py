@@ -1,6 +1,7 @@
 """Flask app for Cupcakes"""
 
 from flask import Flask, jsonify, request
+from flask.templating import render_template
 
 from models import db, connect_db, Cupcake
 
@@ -14,6 +15,12 @@ connect_db(app)
 db.create_all()
 
 app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
+
+@app.route("/")
+def homepage_show():
+    """ Displays homepage. """
+
+    return render_template("index.html")
 
 
 @app.route('/api/cupcakes')
