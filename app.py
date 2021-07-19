@@ -31,7 +31,9 @@ def show_all_cupcakes():
 
 @app.route('/api/cupcakes/<cupcake_id>')
 def show_cupcake_details(cupcake_id):
-    """ Returns cupcake details in JSON format. """
+    """
+    Returns cupcake details in JSON format.
+    {cupcake: {id, flavor, size, rating, image}} """
 
     cupcake = Cupcake.query.get_or_404(cupcake_id)
     serialized = cupcake.serialize()
@@ -42,7 +44,7 @@ def show_cupcake_details(cupcake_id):
 
 @app.route('/api/cupcakes', methods=["POST"])
 def create_new_cupcake():
-    """ Creates new cupcake. """
+    """ Creates new cupcake, returns cupcake detail in JSON. """
 
     flavor = request.json["flavor"]
     size = request.json["size"]
