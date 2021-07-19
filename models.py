@@ -51,9 +51,9 @@ class Cupcake(db.Model):
         """ Serialize Cupcake instance to dictionary. """
 
         return {
-                "id": self.id,
-                "flavor": self.flavor,
-                "size": self.size,
-                "rating": self.rating,
-                "image": self.image
+            "id": self.id,
+            "flavor": self.flavor,
+            "size": self.size,
+            "rating": self.rating,
+            "image": self.image
         }
